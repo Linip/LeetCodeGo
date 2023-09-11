@@ -4,17 +4,16 @@
 package RichestCustomerWealth
 
 func maximumWealth(accounts [][]int) int {
-	max := 0
 	for _, cust := range accounts {
 		sum := 0
 		for _, bank := range cust {
 			sum += bank
 		}
 
-		if sum > max {
-			max = sum
+		if sum > accounts[0][0] {
+			accounts[0][0] = sum
 		}
 	}
 
-	return max
+	return accounts[0][0]
 }
