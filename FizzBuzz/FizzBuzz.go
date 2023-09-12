@@ -10,17 +10,16 @@ import (
 func fizzBuzz(n int) []string {
 	result := make([]string, n)
 
-	for i := 1; i <= n; i++ {
-		result[i-1] = ""
-
-		if i%3 == 0 {
-			result[i-1] += "Fizz"
-		}
-		if i%5 == 0 {
-			result[i-1] += "Buzz"
-		}
-		if result[i-1] == "" {
-			result[i-1] = strconv.Itoa(i)
+	for i := range result {
+		switch (i + 1) % 15 {
+		case 0:
+			result[i] = "FizzBuzz"
+		case 3, 6, 9, 12:
+			result[i] = "Fizz"
+		case 5, 10:
+			result[i] = "Buzz"
+		default:
+			result[i] = strconv.Itoa(i + 1)
 		}
 	}
 
