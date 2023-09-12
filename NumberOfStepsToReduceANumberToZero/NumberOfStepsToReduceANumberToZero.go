@@ -5,11 +5,11 @@ package NumberOfStepsToReduceANumberToZero
 
 func numberOfSteps(num int) int {
 	var i int
-	for i = 0; num != 0; i++ {
-		if num%2 == 0 {
-			num /= 2
+	for i = 0; num > 0; i++ {
+		if (num & 1) == 0 {
+			num >>= 1
 		} else {
-			num -= 1
+			num--
 		}
 	}
 
